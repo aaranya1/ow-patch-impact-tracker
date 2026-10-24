@@ -1,0 +1,28 @@
+[project]
+name = "patchimpact"
+version = "0.1.0"
+description = "Overwatch patch notes -> validated change records -> ranked/pro impact analysis"
+requires-python = ">=3.11"
+dependencies = [
+    "google-genai>=2.30",
+    "psycopg[binary]>=3.2",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+patchimpact = "patchimpact.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["patchimpact"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: calls a real LLM provider (needs an API key); skipped by default"]
+addopts = "-m 'not live'"
