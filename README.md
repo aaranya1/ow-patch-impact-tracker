@@ -14,7 +14,7 @@ cp config.example.toml config.toml
 docker compose up -d --wait       # Postgres on localhost:5432
 ```
 
-Get a free Gemini API key at https://aistudio.google.com/apikey and set it as `GEMINI_API_KEY`.
+Get a free Gemini API key at https://aistudio.google.com/apikey and put it in a `.env` file at the repo root (gitignored) as `GEMINI_API_KEY=...`, or set it as an environment variable.
 
 ```sh
 patchimpact smoke                 # sends a test patch line through the wrapper, prints JSON

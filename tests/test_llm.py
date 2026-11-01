@@ -30,9 +30,11 @@ def test_unknown_provider_raises():
 
 
 def test_missing_api_key_raises(monkeypatch):
-    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
-    with pytest.raises(llm.LLMError, match="GEMINI_API_KEY"):
-        llm.extract("x", {}, config=cfg())
+    c = cfg()
+    c["llm"]["gemini"]["api_key_env"] = "PATCHIMPACT_TEST_UNSET_KEY"
+    monkeypatch.delenv("PATCHIMPACT_TEST_UNSET_KEY", raising=False)
+    with pytest.raises(llm.LLMError, match="PATCHIMPACT_TEST_UNSET_KEY"):
+        llm.extract("x", {}, config=c)
 
 
 @pytest.mark.live

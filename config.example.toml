@@ -5,7 +5,7 @@ provider = "gemini"            # gemini | groq | ollama
 temperature = 0.0              # keep extraction deterministic for evals
 
 [llm.gemini]
-model = "gemini-2.5-flash"     # check https://ai.google.dev/gemini-api/docs/models for current free-tier models
+model = "gemini-3.8-flash"     # check https://ai.google.dev/gemini-api/docs/models for current free-tier models
 api_key_env = "GEMINI_API_KEY" # name of the env var holding your key
 
 [database]
